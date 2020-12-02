@@ -22,7 +22,7 @@ class HttpServer(object):
     self.control = control
     self.host = host
     self.port = port
-    self.experiences = [{ 'id': control.name }]
+    self.experiences = [{'id': control.name}]
     self.firstTime = False
     self.ClientID = 0
     self.connectedClients = 0
@@ -110,7 +110,7 @@ class HttpServer(object):
       'tools.sessions.on': True,
       'tools.sessions.storage_type': 'file',
       'tools.sessions.storage_path': './sessions',
-      'tools.sessions.timeout': 120,
+      'tools.sessions.timeout': 0.5,
       'tools.proxy.on':True,
       'server.socket_host': '0.0.0.0',
       'server.socket_port': self.port,

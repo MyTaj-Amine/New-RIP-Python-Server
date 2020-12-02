@@ -1,5 +1,5 @@
 '''
-@author: jcsombria
+@author: J.chacon
 '''
 import ujson
 import serial
@@ -13,8 +13,8 @@ from rip.RIPGeneric import RIPGeneric
 
 default_info = {
   'name': 'Arduino',
-  'description': 'An implementation of RIP to control Arduino',
-  'authors': 'J. Chacon',
+  'description': 'An New implementation of RIP to control Arduino',
+  'authors': 'J. Chacon,',
   'keywords': 'Arduino, RIP',
 }
 

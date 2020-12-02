@@ -12,6 +12,7 @@ import threading
 
 builder = JsonRpcBuilder()
 
+
 class RIPGeneric(JsonRpcServer):
   '''
   RIP Server - Reference Implementation
@@ -83,6 +84,15 @@ class RIPGeneric(JsonRpcServer):
   def running(self):
     pass
 
+  def stop(self):
+    '''
+    Stop the server and send close event to sse clients.
+    '''
+    print('stop')
+    self.sseRunning = False
+    self._running = False
+
+
   def sampling_method(self):
       self.sampling_method = self.variable_config[0]['sampling']['type']
       if self.sampling_method == 'PeriodicSampler':
@@ -98,7 +108,6 @@ class RIPGeneric(JsonRpcServer):
         self.sampler = samplers.SoDsampler(self.first_sample, self.period,  self.s, self.threshold)
       else:
           print('sampling method dont found')
-
 
   def connect(self, session):
     if self.sampler.steps == 0:

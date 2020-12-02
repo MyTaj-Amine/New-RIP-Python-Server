@@ -5,6 +5,7 @@ import random
 import time
 import cherrypy
 
+
 class Signal(object):
   '''
   A Signal that can be sampled

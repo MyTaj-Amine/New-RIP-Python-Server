@@ -8,6 +8,8 @@ class EventProxy(object):
     self.queue = []
     self.EVENT_SEPARATOR = ''
     self.session = session
+    self.disconnection = 0
+    self.reconnection = 0
 
   def data_available(self):
     if self.queue:

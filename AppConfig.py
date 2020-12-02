@@ -9,15 +9,14 @@ config = {
   # The 'impl' field should contain the name of the module (.py) and the
   # class that implement the control interface
   'control': {
-    'impl_module': 'RIPGeneric',
+    'impl_module': 'RIPArduino',
     # Also, if the class name is not the same as the module name:
     #'impl_name': 'RIPGeneric',
     'info': {
       'name': 'RIP Generic',
       'description': 'A generic implementation of RIP',
-      'authors': 'J. Chacon',
+      'authors': 'J. Chacon, A. My-Taj',
       'keywords': 'Raspberry PI, RIP',
-
      # global configuration of the sampling
       'sampling_methods': {
         'PeriodicSampler': {
@@ -40,12 +39,32 @@ config = {
         'sampling': {
           'type': 'PeriodicSoD',
           'params': {
-            'delta': '1'
+            'delta': '2'
           }
         }
+      }, {
+        'name':'Y',
+        'description':'Output variables',
+        'type':'array',
+        'min':'0',
+        'max':'Inf',
+        'precision':'0',
+        'sampling': {
+          'type': 'PeriodicSoD',
+          'params': {
+            'delta': '2'
+          }
+        }          
       }],
       # Server writable objects
-      'writables': []
+      'writables':  [{
+        "name": "params",
+        "description": "PID params: kp, ki, kd, u_eq",
+        "type": "array",
+        "min": "0",
+        "max": "0",
+        "precision": "0"
+      }]
     },
   }
 }
